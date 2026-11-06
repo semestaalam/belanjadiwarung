@@ -545,7 +545,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 <script>
 /* KONFIGURASI BACKEND - DIPERTAHANKAN */
 const BACKEND_URL="https://script.google.com/macros/s/AKfycbxZX0SiOvcZ0Nwr-MY1-28Q-Lhig4z7dq1NZQvGriQAQ8EA8WKC0M-7HIdBqhhnra8/exec";
-const STORE_ID="warung-utama";
+const STORE_ID = (new URLSearchParams(location.search).get("warung") || "warung-utama").trim().toLowerCase().replace(/\s+/g, "-");
 const DEVELOPER_WA="6281907396212";
 
 async function sendBackendRequest(payload){
