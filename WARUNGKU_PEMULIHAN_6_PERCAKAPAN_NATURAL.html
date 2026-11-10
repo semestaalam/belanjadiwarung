@@ -176,7 +176,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
   <section class="panel login">
     <div class="logo">🏪</div>
     <h1 id="loginStoreName">WARUNGKU</h1>
-    <p class="muted" style="text-align:center">Belanja mudah, lengkap, dan praktis.</p>
+    <p class="muted" style="text-align:center">Belanja mudah, Terjangkau, dan Praktis.</p>
 
     <div class="tabs">
       <button id="customerTab" class="active" onclick="switchLogin('customer')">PELANGGAN</button>
@@ -214,14 +214,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
     <form id="forgotPasswordForm" class="hidden" onsubmit="return false">
       <h3 style="color:var(--navy);margin:18px 0 4px">Pulihkan Password lewat Email</h3>
-      <p class="muted">Masukkan email yang digunakan saat mendaftar akun pemilik WARUNGKU. Supabase akan mengirim tautan pemulihan ke email tersebut. Tidak perlu login atau mengisi Pengaturan Warung terlebih dahulu.</p>
+      <p class="muted">Masukkan email yang digunakan saat mendaftar akun pemilik WARUNG. WARUNGKU akan mengirim tautan pemulihan ke email tersebut. Tidak perlu login atau mengisi Pengaturan Warung terlebih dahulu.</p>
       <div id="forgotStep1">
         <label>Email akun pemilik warung</label>
         <input id="forgotEmail" type="email" autocomplete="email" placeholder="Email yang digunakan saat mendaftar" required>
         <button id="sendResetLinkButton" style="width:100%;margin-top:12px" onclick="sendResetOtp()">Kirim Tautan Pemulihan</button>
       </div>
       <div id="forgotStep2" class="hidden">
-        <div class="notice">Permintaan pemulihan sudah diproses. Jika email terdaftar, Supabase akan mengirim tautan pemulihan. Periksa Kotak Masuk, Spam, atau Promosi, lalu buka tautan dari perangkat ini.</div>
+        <div class="notice">Permintaan pemulihan sudah diproses. Jika email terdaftar, Warungku akan mengirim tautan pemulihan. Periksa Kotak Masuk, Spam, atau Promosi, lalu buka tautan dari perangkat ini.</div>
         <button type="button" class="secondary" style="width:100%;margin-top:12px" onclick="sendResetOtp()">Kirim Ulang Tautan</button>
       </div>
       <div id="forgotStep3" class="hidden">
@@ -314,7 +314,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
         <img id="customerStoreLogo" class="store-logo" alt="Logo warung">
         <div style="min-width:0">
           <div id="customerStoreName" class="store-title">WARUNGKU</div>
-          <div id="customerStoreTagline" class="muted">Belanja mudah, lengkap, dan praktis.</div>
+          <div id="customerStoreTagline" class="muted">Belanja mudah, Terjangkau dan Praktis.</div>
         </div>
       </div>
     </div>
@@ -358,7 +358,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
         <b>Total</b><span class="total" id="cartTotal">Rp0</span>
       </div>
       <button style="width:100%" onclick="openCheckout()">Lanjut Checkout</button>
-      <p class="muted">Harga merupakan estimasi dan dapat berubah. Konfirmasi dilakukan sebelum pesanan diproses.</p>
+      <p class="muted">Harga dapat berubah. Konfirmasi sebelum pesanan diproses.</p>
     </aside>
   </div>
 </main>
@@ -433,7 +433,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
   <section id="adminOrders" class="panel hidden">
     <h3>Pesanan Pelanggan</h3>
-    <p class="muted">Riwayat pesanan lokal pada browser ini. Status penyimpanan pusat ditampilkan jika backend memberikan konfirmasi.</p>
+    <p class="muted">Riwayat pesanan lokal pada browser ini.</p>
     <div id="ordersList"></div>
   </section>
 
@@ -513,7 +513,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
   </section>
 
   <section id="adminPayment" class="panel hidden">
-    <h3>Tujuan Pembayaran Belanja Pelanggan kepada rekening warung kamu. utuh tanpa potongan</h3>
+    <h3>Tujuan Pembayaran Belanja Pelanggan kepada rekening warung kamu. Utuh Tanpa Potongan</h3>
     <p class="muted">Bagian ini terpisah dari rekening pembayaran paket aplikasi WARUNGKU.</p>
     <div class="admin-grid">
       <div><label>DANA</label><input id="payDana"></div>
@@ -595,7 +595,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
     <label>Password Admin</label>
     <input id="adminPasswordInput" type="password" autocomplete="current-password" placeholder="Password akun Admin Supabase">
     <button id="adminLoginButton" style="width:100%;margin-top:12px" onclick="adminLoginSubmit()">Masuk Dashboard Admin</button>
-    <p class="muted">Login diverifikasi oleh Supabase Auth. Password tidak disimpan di browser.</p>
+    <p class="muted">Login diverifikasi oleh Supabase Auth.</p>
 
   </section>
 </div>
