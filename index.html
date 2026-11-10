@@ -576,7 +576,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
 <footer>
   BELANJA DI WARUNG · WARUNGKU<br>
-  Harga estimasi, dapat berubah sewaktu-waktu dan dikonfirmasi sebelum pesanan diproses.<br>
+  Harga dapat berubah sewaktu-waktu dan dikonfirmasi sebelum pesanan diproses.<br>
   Under Indonesian SSD Foundation<br>
   WhatsApp Developer:
   <a href="https://wa.me/6281907396212" target="_blank" rel="noopener">0819 0739 6212</a>
@@ -1315,9 +1315,9 @@ async function sendChat(){
 
   let fallback=answerChat(q);
   addChatBubble(
-   "Maaf ya, Kak 🙏 Saya bantu cek informasi yang tersedia di warung kami.\n\n"+fallback,
-   "bot"
-  );
+  fallback,
+  "bot"
+);
 
  }finally{
   chatSending=false;
@@ -1359,12 +1359,14 @@ function answerChat(q){
     return `🛍️ ${brand}${p.name||"Produk"}${variant}${asksPrice?" — "+price:""}; ${stockText}`;
    }).join("\n")+"\n\nSilakan beri tahu saya produk atau jumlah yang Kakak butuhkan. Saya bantu dengan senang hati. 😊";
   }
-  const searched=catalogWords.join(" ");
-  if(!Array.isArray(products)||!products.length){
-   return "Maaf, Kak 🙏 Katalog produk warung belum berhasil dimuat, jadi saya belum bisa memastikan ketersediaannya. Saya tidak mau memberi informasi stok yang keliru. Silakan coba lagi setelah katalog tersedia.";
-  }
-  return `Maaf, Kak 🙏 Produk “${searched}” belum ditemukan dalam katalog warung ini. Kalau Kakak mau, sebutkan merek atau jenis lain, nanti saya bantu cek.`;
- }
+  const searched = catalogWords.join(" ");
+
+if (!Array.isArray(products) || !products.length) {
+  return "Baik, Kak. 😊 Katalog produk sedang belum tersedia. Silakan coba beberapa saat lagi, ya. Saya siap membantu Kakak.";
+}
+
+return `Baik, Kak. 😊 Untuk “${searched}”, saya belum menemukan produk yang sesuai di katalog warung kami. Apakah Kakak ingin mencoba merek atau jenis lainnya?`;
+}
 
  if(/\b(minimal|minim|50rb|50000)\b/.test(t)){
   return `Untuk layanan antar warung, minimal belanja sebesar ${money(settings.deliveryMinimum||50000)}, ya, Kak. 🚚 Wilayah layanan: ${settings.deliveryArea||"lingkungan RT/RW sekitar warung"}. 😊`;
