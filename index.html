@@ -7,7 +7,7 @@
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon-192.png">
 <link rel="apple-touch-icon" href="./icon-192.png">
-<title>BELANJA DI WARUNG</title>
+<title>BELANJA KEWARUNG ONLINE</title>
 <style>
 :root{--navy:#14243b;--green:#16834a;--gold:#f5b82e;--bg:#f4f6f8;--ink:#1e293b;--muted:#64748b;--line:#e2e8f0}
 *{box-sizing:border-box}
@@ -178,7 +178,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
   <section class="panel login">
     <div class="logo">🏪</div>
     <h1 id="loginStoreName">WARUNGKU</h1>
-    <p class="muted" style="text-align:center">Belanja mudah, lengkap, dan praktis.</p>
+    <p class="muted" style="text-align:center">Belanja mudah, Terjangkau, dan Praktis.</p>
 
     <div class="tabs">
       <button id="customerTab" class="active" onclick="switchLogin('customer')">PELANGGAN</button>
@@ -209,25 +209,25 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
         <label>Email pemilik</label><input id="ownerRegEmail" type="email" placeholder="Email aktif">
         <label>Password (minimal 8 karakter)</label><input id="ownerRegPassword" type="password" minlength="8" placeholder="Buat password">
         <button type="button" style="width:100%;margin-top:12px" onclick="registerWarungOwner()">Buat Akun & Daftarkan Warung</button>
-        <p class="muted">Pendaftaran masuk ke Admin dalam status menunggu verifikasi. Layanan belum aktif sampai Admin menyetujui.</p>
+        <p class="muted">Pendaftaran masuk ke Admin dalam status menunggu verifikasi.</p>
       </div>
       <button type="button" class="secondary" style="width:100%;margin-top:13px" onclick="showForgotPassword()">📧 Lupa Password? Pulihkan lewat Email</button>
     </form>
 
     <form id="forgotPasswordForm" class="hidden" onsubmit="return false">
       <h3 style="color:var(--navy);margin:18px 0 4px">Pulihkan Password lewat Email</h3>
-      <p class="muted">Masukkan email yang digunakan saat mendaftar akun pemilik WARUNGKU. Supabase akan mengirim tautan pemulihan ke email tersebut. Tidak perlu login atau mengisi Pengaturan Warung terlebih dahulu.</p>
+      <p class="muted">Masukkan email yang digunakan saat mendaftar akun pemilik WARUNG. WARUNGKU akan mengirim tautan pemulihan ke email tersebut. Tidak perlu login atau mengisi Pengaturan Warung terlebih dahulu.</p>
       <div id="forgotStep1">
         <label>Email akun pemilik warung</label>
         <input id="forgotEmail" type="email" autocomplete="email" placeholder="Email yang digunakan saat mendaftar" required>
         <button id="sendResetLinkButton" style="width:100%;margin-top:12px" onclick="sendResetOtp()">Kirim Tautan Pemulihan</button>
       </div>
       <div id="forgotStep2" class="hidden">
-        <div class="notice">Permintaan pemulihan sudah diproses. Jika email terdaftar, Supabase akan mengirim tautan pemulihan. Periksa Kotak Masuk, Spam, atau Promosi, lalu buka tautan dari perangkat ini.</div>
+        <div class="notice">Permintaan pemulihan sudah diproses. Jika email terdaftar, WARUNGKU akan mengirim tautan pemulihan. Periksa Kotak Masuk, Spam, atau Promosi, lalu buka tautan dari perangkat ini.</div>
         <button type="button" class="secondary" style="width:100%;margin-top:12px" onclick="sendResetOtp()">Kirim Ulang Tautan</button>
       </div>
       <div id="forgotStep3" class="hidden">
-        <p class="notice">Tautan pemulihan berhasil diverifikasi. Buat password baru untuk akun pemilik WARUNGKU.</p>
+        <p class="notice">Tautan pemulihan berhasil diverifikasi. Buat password baru untuk akun pemilik WARUNG.</p>
         <label>Password baru (minimal 8 karakter)</label>
         <input id="forgotNewPass" type="password" minlength="8" autocomplete="new-password">
         <label>Ulangi password baru</label>
@@ -316,7 +316,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
         <img id="customerStoreLogo" class="store-logo" alt="Logo warung">
         <div style="min-width:0">
           <div id="customerStoreName" class="store-title">WARUNGKU</div>
-          <div id="customerStoreTagline" class="muted">Belanja mudah, lengkap, dan praktis.</div>
+          <div id="customerStoreTagline" class="muted">Belanja mudah, Terjangkau, dan Praktis.</div>
         </div>
       </div>
     </div>
@@ -325,7 +325,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
   <div id="deliveryBanner" class="delivery-note"></div>
 
   <section class="chat-inline">
-    <div class="chat-head">🧑‍🍳 Pelayan WARUNGKU</div>
+    <div class="chat-head">🧑‍🍳 Pelayan WARUNG ONLINE</div>
     <div id="chatMessages" class="chat-messages">
       <div class="chat-bubble bot">🌸 Halo, Kak! Selamat datang di WARUNGKU. Saya siap membantu Kakak berbelanja. Mau cari kebutuhan apa hari ini? 😊</div>
     </div>
@@ -360,7 +360,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
         <b>Total</b><span class="total" id="cartTotal">Rp0</span>
       </div>
       <button style="width:100%" onclick="openCheckout()">Lanjut Checkout</button>
-      <p class="muted">Harga merupakan estimasi dan dapat berubah. Konfirmasi dilakukan sebelum pesanan diproses.</p>
+      <p class="muted">Harga dapat berubah. Konfirmasi sebelum pesanan diproses.</p>
     </aside>
   </div>
 </main>
@@ -435,7 +435,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
   <section id="adminOrders" class="panel hidden">
     <h3>Pesanan Pelanggan</h3>
-    <p class="muted">Riwayat pesanan lokal pada browser ini. Status penyimpanan pusat ditampilkan jika backend memberikan konfirmasi.</p>
+    <p class="muted">Riwayat pesanan lokal pada browser ini.</p>
     <div id="ordersList"></div>
   </section>
 
@@ -445,10 +445,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
     <label>Slogan / keterangan</label><input id="settingTagline">
     <label>Nomor WhatsApp pemilik (format internasional)</label><input id="settingWhatsapp" placeholder="6281234567890">
     <label>Email Pemilik Warung yang Aktif (buat pulihkan password kalau lupa)</label><input id="settingOwnerEmail" type="email" placeholder="contoh: warungku@gmail.com">
-    <p class="muted">Email ini hanya dipakai untuk kirim kode OTP kalau pemilik lupa password. Tidak ditampilkan ke pelanggan. Kalau lupa password emailnya, pemilik pulihkan lewat Gmail-nya sendiri.</p>
+    <p class="muted">Email ini hanya dipakai untuk kirim kode OTP kalau pemilik lupa password.</p>
 
     <h3>Buat QR Code Warung</h3>
-    <p class="muted">Kolom khusus untuk membuat QR Code warung ini saja. Isi nomor HP / WA warung dan nama warung, lalu klik Buat QR Code Warung. QR yang muncul adalah milik warung ini saja.</p>
+    <p class="muted">Kolom khusus untuk membuat QR Code warung Kamu. Isi nomor HP / WA warung kamu dan nama warung, lalu klik Buat QR Code Warung. QR yang muncul adalah milik warung Kamu.</p>
     <label>Masukan nomor HP / WA warung</label><input id="qrMakerWa" placeholder="contoh: 6281234567890">
     <label>Masukan nama warung</label><input id="qrMakerName" placeholder="contoh: Warung Budi">
     <button style="margin-top:12px" onclick="makeOwnerQr()">Buat QR Code Warung</button>
@@ -505,7 +505,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
     <button style="margin-top:15px" onclick="saveSettings()">Simpan Pengaturan</button>
         <h3>Link Sosial Media Warung</h3>
-    <p class="muted">Isi link sosial media warung. Link ini akan tampil sebagai logo di bagian bawah Dashboard Pelanggan. Jika dikosongkan, logonya tetap tampil tapi tidak bisa dibuka.</p>
+    <p class="muted">Link sosial media warung.</p>
     <label>Link YouTube</label><input id="socialYoutube" placeholder="https://youtube.com/@warungku">
     <label>Link TikTok</label><input id="socialTiktok" placeholder="https://tiktok.com/@warungku">
     <label>Link Instagram</label><input id="socialInstagram" placeholder="https://instagram.com/warungku">
@@ -577,9 +577,9 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 </div>
 
 <footer>
-  BELANJA DI WARUNG · WARUNGKU<br>
-  Harga estimasi, dapat berubah sewaktu-waktu dan dikonfirmasi sebelum pesanan diproses.<br>
-  Under Indonesian SSD Foundation<br>
+  BELANJA DI WARUNGKU<br>
+  Harga berubah sewaktu-waktu konfirmasi sebelum pesanan diproses.<br>
+  Under Semesta ALam - Indonesian SSD Foundation<br>
   WhatsApp Developer:
   <a href="https://wa.me/6281907396212" target="_blank" rel="noopener">0819 0739 6212</a>
 </footer>
@@ -591,13 +591,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 <div id="adminLoginModal" class="modal-overlay hidden">
   <section class="modal-content">
     <div class="modal-header"><h2>Login Admin Aplikasi</h2><button class="danger" onclick="closeAdminLogin()">✕</button></div>
-    <p class="muted">Khusus admin aplikasi. Pemilik warung dan pelanggan tidak bisa masuk dari sini.</p>
+    <p class="muted">Khusus admin aplikasi.</p>
     <label>Email Admin Utama</label>
     <input id="adminEmailInput" type="email" autocomplete="username" placeholder="Email akun Admin Supabase">
     <label>Password Admin</label>
     <input id="adminPasswordInput" type="password" autocomplete="current-password" placeholder="Password akun Admin Supabase">
     <button id="adminLoginButton" style="width:100%;margin-top:12px" onclick="adminLoginSubmit()">Masuk Dashboard Admin</button>
-    <p class="muted">Login diverifikasi oleh Supabase Auth. Password tidak disimpan di browser.</p>
+    <p class="muted">Login diverifikasi oleh Supabase Auth.</p>
 
   </section>
 </div>
@@ -657,10 +657,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 
   <section class="panel" id="adminDemoProductsPanel">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
-      <h3 style="margin:0">Pengaturan Produk Contoh (Halaman Depan / Warung Percobaan)</h3>
+      <h3 style="margin:0">Pengaturan Produk Contoh (Halaman Depan)</h3>
       <button class="secondary" type="button" onclick="loadDemoProductsAdmin()">Muat Ulang Produk Contoh</button>
     </div>
-    <p class="muted">Khusus untuk halaman pertama yang dilihat orang baru di <b>https://kewarung.online/warungpercobaan</b> sebagai pelanggan. Produk di sini <b>HANYA</b> milik Warung Percobaan (Demo). Tidak menyentuh produk Warung A, B, C, dan warung beneran lainnya. Jenis produknya ngikutin yang sudah ada di Dashboard Pelanggan (38 jenis, BERAS sampai LAYANAN DIGITAL).</p>
+    <p class="muted">Khusus untuk halaman pertama yang dilihat orang baru di <b>https://kewarung.online.</b> sebagai pelanggan. Produk di sini <b>HANYA</b> milik Warung Percobaan (Demo). Tidak menyentuh produk Warung A, B, C, dan warung beneran lainnya. Jenis produknya ngikutin yang sudah ada di Dashboard Pelanggan (38 jenis, BERAS sampai LAYANAN DIGITAL).</p>
     <div class="row" style="flex-wrap:wrap">
       <div style="flex:1;min-width:180px"><label>Nama Produk Contoh</label><input id="demoProdName" placeholder="Contoh: Gula 1kg"></div>
       <div style="flex:1;min-width:140px"><label>Merek</label><input id="demoProdBrand" placeholder="Contoh: Gulaku"></div>
