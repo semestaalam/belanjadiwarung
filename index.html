@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#14243b">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <title>KEWARUNG ONLINE AJA</title>
 <style>
 :root{--navy:#14243b;--green:#16834a;--gold:#f5b82e;--bg:#f4f6f8;--ink:#1e293b;--muted:#64748b;--line:#e2e8f0}
@@ -182,7 +182,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 <body>
 
 <header>
-  <div class="brand" style="display:flex;align-items:center;gap:10px"><img src="./icon-192.png" style="width:38px;height:38px;border-radius:50%;border:2px solid white"><div>🛒 BELANJA DI WARUNG
+  <div class="brand" style="display:flex;align-items:center;gap:10px"><img src="/icon-192.png" style="width:38px;height:38px;border-radius:50%;border:2px solid white"><div>🛒 BELANJA DI WARUNG
     <small id="storeTagline">Belanja Mudah, Terjangkau &amp; Praktis</small>
   </div>
   <div id="headerGuestActions" style="display:flex;gap:8px;align-items:center">
@@ -739,7 +739,27 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
 <script>
 /* KONFIGURASI BACKEND - DIPERTAHANKAN */
 const BACKEND_URL="https://script.google.com/macros/s/AKfycbxZX0SiOvcZ0Nwr-MY1-28Q-Lhig4z7dq1NZQvGriQAQ8EA8WKC0M-7HIdBqhhnra8/exec";
-const STORE_ID = (function(){ const q=(new URLSearchParams(location.search).get("warung")||"").trim(); if(q) return q.toLowerCase().replace(/\s+/g,"-"); const path=(location.pathname||"").replace(/^\/+|\/+$/g,"").toLowerCase(); if(path && path!=="index.html" && path!=="index.html.html") return path.replace(/\s+/g,"-"); return "warung-utama"; })(); 
+const STORE_ID = (function(){
+  const params=new URLSearchParams(location.search);
+  const routeMarker=(params.get("__warung_path")||"").trim();
+  if(routeMarker){
+    const cleanPath="/"+routeMarker.replace(/^\/+|\/+$/g,"").replace(/\/+/g,"/");
+    params.delete("__warung_path");
+    const remainingQuery=params.toString();
+    history.replaceState(null,"",cleanPath+(remainingQuery?"?"+remainingQuery:"")+location.hash);
+  }
+  let path=(location.pathname||"").replace(/^\/+|\/+$/g,"").toLowerCase();
+  if(path && path!=="index.html" && path!=="index.html.html") return path.replace(/\s+/g,"-");
+  const q=(params.get("warung")||"").trim();
+  if(q){
+    const slug=q.toLowerCase().replace(/\s+/g,"-");
+    params.delete("warung");
+    const remainingQuery=params.toString();
+    history.replaceState(null,"","/"+encodeURIComponent(slug)+(remainingQuery?"?"+remainingQuery:"")+location.hash);
+    return slug;
+  }
+  return "warung-utama";
+})(); 
   function storeKey(base){ return base + "_" + STORE_ID; }
   const PRODUCT_KEY = storeKey("bw_products");
   const SETTINGS_KEY = storeKey("bw_settings");
@@ -2367,8 +2387,7 @@ function makeOwnerQr(){
   if(!name) return alert("Masukan nama warung dulu.");
   let slug=name.toLowerCase().trim().replace(/\s+/g,"-");
   if(slug.indexOf("warung")!==0) slug="warung-"+slug;
-  let base=window.location.href.split("?")[0];
-  let link=base+"?warung="+encodeURIComponent(slug);
+  let link=new URL("/"+encodeURIComponent(slug),location.origin).toString();
   let qrUrl="https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=10&data="+encodeURIComponent(link);
   let img=document.getElementById("qrMakerImage");
   img.src=qrUrl;
@@ -2729,7 +2748,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 /* PWA - FILE MANIFEST DAN SERVICE WORKER SUDAH ADA DI REPOSITORY */
 if("serviceWorker" in navigator){
  window.addEventListener("load",()=>{
-  navigator.serviceWorker.register("./service-worker.js",{scope:"./"})
+  navigator.serviceWorker.register("/service-worker.js",{scope:"/"})
    .then(()=>console.log("Service Worker terdaftar - PWA Ready ✅"))
    .catch(err=>console.warn("Service Worker belum aktif:",err));
  });
@@ -2813,7 +2832,7 @@ async function ownerLoginSubmit(e){
   const statusMessage=ownerServiceStatus(row);
   if(statusMessage){alert(statusMessage);return;}
   if(String(row.store_id)!==String(STORE_ID)){
-   const u=new URL(location.href);u.searchParams.set("warung",row.store_id);location.replace(u.toString());return;
+   location.replace(new URL("/"+encodeURIComponent(String(row.store_id).trim().toLowerCase().replace(/\s+/g,"-")),location.origin).toString());return;
   }
   window.WARUNGKU_OWNER_ROW=row;
   enter("owner");loadSettingsForm();renderAdminProducts();try{renderJenisProduk();}catch(_e){}renderOrders();try{renderSubscriptionBanner();}catch(_e){}
@@ -2837,7 +2856,7 @@ async function restoreWarungkuSession(){
   }
   const row=await loadOwnerWarungForUser(sb,session.user);
   if(String(row.store_id)!==String(STORE_ID)){
-   const u=new URL(location.href);u.searchParams.set("warung",row.store_id);location.replace(u.toString());return;
+   location.replace(new URL("/"+encodeURIComponent(String(row.store_id).trim().toLowerCase().replace(/\s+/g,"-")),location.origin).toString());return;
   }
   const msg=ownerServiceStatus(row);if(msg){console.info(msg);return;}
   window.WARUNGKU_OWNER_ROW=row;
