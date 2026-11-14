@@ -526,14 +526,14 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
     <div class="notice">Foto Warung & Logo Warung bisa di-edit upload JPG/PNG. Jika pemilik tidak upload, maka tidak akan nampak pada dashboard pelanggan.</div>
 
     <h3>Pengaturan Pengiriman</h3>
-    <label>Nama wilayah layanan sekitar warung</label><input id="deliveryArea" placeholder="Contoh: RT 02 / RW 05">
-    <label>Ketentuan batas wilayah pengantaran lokal</label><input id="deliveryRadius" placeholder="Lingkungan RT/RW sekitar warung">
+    <label>Nama wilayah layanan sekitar warung</label><input id="deliveryArea" placeholder="Contoh: RT 02 / RW 05 / KOMPLEK">
+    <label>Ketentuan batas wilayah pengantaran lokal</label><input id="deliveryRadius" placeholder="Lingkungan RT/RW/KOMPLEK sekitar warung">
     <label>Minimal belanja untuk diantar warung (Rp)</label><input id="deliveryMinimum" type="number" min="0" value="50000">
     <label>Catatan biaya / ketentuan pengantaran lokal</label><input id="deliveryLocalNote">
      <label>Tulisan Banner Layanan Antar (bisa diedit pemilik warung)</label><textarea id="deliveryBannerText" rows="2" placeholder="Layanan Gratis Antar lokal untuk lingkungan seputar warung (RT/RW) sesuai batas minimal belanja, layanan antar lainnya bisa menggunakan Gosend, SHoope atau Jasa ekspedisi"></textarea>
     <label>Link layanan Gojek (opsional)</label><input id="gojekLink">
     <label>Link layanan ShopeeFood (opsional)</label><input id="shopeeFoodLink">
-    <div class="notice">Pelanggan di luar area RT/RW sekitar warung dapat memilih Gojek atau ShopeeFood. Ketersediaan dan biaya mengikuti aplikasi penyedia.</div>
+    <div class="notice">Pelanggan di luar area RT/RW/KOMPLEK sekitar warung dapat memilih Gojek atau ShopeeFood. Ketersediaan dan biaya mengikuti aplikasi penyedia.</div>
 
     <button style="margin-top:15px" onclick="saveSettings()">Simpan Pengaturan</button>
         <h3>Link Sosial Media Warung</h3>
@@ -587,7 +587,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
     <label>Metode pengiriman</label>
     <select id="deliveryMethod" onchange="showDeliveryInfo()">
       <option value="">Pilih metode pengiriman</option>
-      <option value="Antar warung (area RT/RW sekitar)">Diantar warung (area RT/RW sekitar)</option>
+      <option value="Antar warung (area RT/RW sekitar)">Diantar warung (area RT/RW/KOMPLEK sekitar)</option>
       <option value="Gojek">Gojek (di luar area)</option>
       <option value="ShopeeFood">ShopeeFood (di luar area)</option>
       <option value="Ambil sendiri">Ambil sendiri di warung</option>
