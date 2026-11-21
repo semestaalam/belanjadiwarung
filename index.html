@@ -1440,19 +1440,19 @@ function answerContextualProductChat(question){
  const complaint=/\b(kecewa|mempermainkan|main main|main-main|eror|error|tidak ramah|gak ramah|nggak ramah|tidak membantu|gak membantu|pelayanan buruk|pelayan nya|pelayanmu|kamu itu jualan|kok begitu|salah terus|gak nyambung|nggak nyambung|tidak nyambung|jawabannya gak|jawabanmu|jangan main|harusnya melayani|harus melayani|tidak serius|gak serius)\b/.test(q);
  const conversational=/\b(cepat sekali|cepet banget|cepat banget|gercep|membalas chat|balas chat|cepat membalas|lama membalas|kamu siapa|siapa nama kamu|apa kabar|sedang apa|lagi apa|terima kasih sudah|senang ngobrol|kamu baik|kamu ramah)\b/.test(q);
  if(greeting){
-  if(/^(waalaikumsalam|waalaikumussalam)$/.test(q))return "Waalaikumsalam, Kak. 😊 Terima kasih sudah mampir ke WARUNGKU. Ada yang bisa saya bantu hari ini?";
-  if(/assalam/.test(q))return "Waalaikumsalam, Kak. 🌸 Selamat datang di WARUNGKU. Semoga Kakak sehat dan dimudahkan urusannya. Ada yang bisa saya bantu? 😊";
-  return "Halo, Kak! 🌸 Selamat datang di WARUNGKU. Senang Kakak mampir. Mau berbincang atau mencari kebutuhan hari ini? 😊";
+  if(/^(waalaikumsalam|waalaikumussalam)$/.test(q))return "Waalaikumsalam, Kak. 😊 Terima kasih sudah mampir ke WARUNG Kami. Ada yang bisa saya bantu hari ini?";
+  if(/assalam/.test(q))return "Waalaikumsalam, Kak. 🌸 Selamat datang di WARUNG Kami. Semoga Kakak sehat dan dimudahkan urusannya. Ada yang bisa saya bantu? 😊";
+  return "Halo, Kak! 🌸 Selamat datang di WARUNG Kami. Senang Kakak mampir. Mau berbincang atau mencari kebutuhan hari ini? 😊";
  }
- if(browse)return "Tentu boleh, Kak. Silakan lihat-lihat katalog dahulu dengan santai. Terima kasih sudah berkunjung ke WARUNGKU. Kalau ada produk, merek, ukuran, atau harga yang ingin ditanyakan, saya siap membantu. 😊";
+ if(browse)return "Tentu boleh, Kak. Silakan lihat-lihat katalog dahulu dengan santai. Terima kasih sudah berkunjung ke WARUNG Kami. Kalau ada produk, merek, ukuran, atau harga yang ingin ditanyakan, saya siap membantu. 😊";
  if(complaint)return "Mohon maaf, Kak. Saya tidak bermaksud mempermainkan atau membuat Kakak kesal. Terima kasih sudah menegur saya. Saya akan lebih teliti membaca pesan dan mendengarkan kebutuhan Kakak. Kakak ingin menjelaskan bagian yang kurang tepat? Saya akan bantu dengan serius. 🙏";
  if(conversational){
   if(/cepat sekali|cepet banget|cepat banget|gercep|membalas chat|balas chat|cepat membalas/.test(q))return "Hehe, terima kasih, Kak. Saya berusaha sigap membantu, tetapi yang lebih penting jawaban saya harus tepat dan nyambung dengan kebutuhan Kakak. 😊";
-  if(/kamu siapa|siapa nama kamu/.test(q))return "Saya pelayan WARUNGKU, Kak. Saya siap menemani Kakak memilih kebutuhan dan menjawab pertanyaan dengan ramah. 😊";
+  if(/kamu siapa|siapa nama kamu/.test(q))return "Saya pelayan WARUNG, Kak. Saya siap menemani Kakak memilih kebutuhan dan menjawab pertanyaan dengan ramah. 😊";
   if(/apa kabar/.test(q))return "Alhamdulillah, saya siap membantu, Kak. Semoga Kakak juga sehat dan harinya menyenangkan. 😊";
   return "Terima kasih sudah berbincang dengan saya, Kak. Saya senang bisa menemani. Kalau ada yang ingin ditanyakan atau dibutuhkan, silakan sampaikan saja. 😊";
  }
- if(thanks)return "Sama-sama, Kak. Terima kasih juga sudah berkunjung dan berbincang dengan Saya. Semoga hari Kakak menyenangkan dan segala urusannya dimudahkan. 😊";
+ if(thanks)return "Sama-sama, Kak. Terima kasih juga sudah berkunjung dan berbincang dengan saya. Semoga hari Kakak menyenangkan dan segala urusannya dimudahkan. 😊";
  const outsideCity=/\b(ke luar kota|keluar kota|luar kota|antar kota|antarprovinsi|antar provinsi|luar daerah|ke luar daerah)\b/.test(q);
  const localDelivery=/\b(antar|diantar|pengantaran|pengiriman|kirim|dikirim|kerumah|rumah|alamat|ongkir|gojek|gosend|shopeefood|sampai rumah|ke rumah|di antar|bisa antar)\b/.test(q);
  if(outsideCity)return "Bisa kami bantu, Kak. Untuk pengiriman luar kota, pilihan ekspedisi dan biayanya perlu dikonfirmasi terlebih dahulu. Kakak boleh pilih produk dan jumlahnya dulu. Setelah itu pemilik warung akan memeriksa stok, jenis barang, pengemasan, pilihan kurir, serta ongkos kirim sebelum pesanan dikonfirmasi. 😊";
@@ -1553,7 +1553,7 @@ function answerChat(q){
  }
 
  if(/\b(halo|hai|assalam|selamat)\b/.test(t)){
-  return `Halo, ${customerName}! 🌸 Selamat datang di WARUNGKU. Mau mencari kebutuhan apa hari ini? Saya bantu, ya! 😊`;
+  return `Halo, ${customerName}! 🌸 Selamat datang di WARUNG Kami. Mau mencari kebutuhan apa hari ini? Saya bantu, ya! 😊`;
  }
  if(/\b(terima kasih|makasih|thanks)\b/.test(t)){
   return `Sama-sama, ${customerName}! 😊 Senang bisa membantu. Jangan sungkan kalau ada kebutuhan lain, ya. 🛍️`;
@@ -1620,8 +1620,8 @@ function answerChat(q){
  if(/\b(pesan|checkout|keranjang|belanja)\b/.test(t)){
   return `Tentu, Kak! 🛒 Pilih produk, tekan Tambah ke Keranjang, periksa jumlah dan total belanja, lalu lanjutkan checkout. Isi data pengiriman dan pembayaran; pesanan akan dikonfirmasi pemilik warung. 😊`;
  }
- if(/\b(jam|buka|tutup)\b/.test(t)) return `Untuk informasi jam operasional, Kakak bisa menghubungi pemilik WARUNGKU melalui WhatsApp, ya. 😊`;
- if(/\b(siapa|kamu|nama)\b/.test(t)) return `Saya pelayan WARUNGKU, Kak. 😊 Saya siap membantu Kakak memilih kebutuhan belanja.`;
+ if(/\b(jam|buka|tutup)\b/.test(t)) return `Untuk informasi jam operasional, Kakak bisa menghubungi pemilik WARUNG melalui WhatsApp, ya. 😊`;
+ if(/\b(siapa|kamu|nama)\b/.test(t)) return `Saya pelayan WARUNG, Kak. 😊 Saya siap membantu Kakak memilih kebutuhan belanja.`;
  return `Baik, Kak. 😊 Ceritakan saja kebutuhan belanja Kakak. Saya bantu carikan pilihan yang sesuai.`;
 }
 
