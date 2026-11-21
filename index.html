@@ -359,7 +359,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
   <section class="chat-inline">
     <div class="chat-head">🧑‍🍳 Pelayan WARUNG ONLINE</div>
     <div id="chatMessages" class="chat-messages">
-      <div class="chat-bubble bot">🌸 Halo, Kak! Selamat datang di WARUNGKU. Saya siap membantu Kakak berbelanja. Mau cari kebutuhan apa hari ini? 😊</div>
+      <div class="chat-bubble bot">🌸 Halo, Kak! Selamat datang di WARUNG ONLINE. Saya siap membantu Kakak berbelanja. Mau cari kebutuhan apa hari ini? 😊</div>
     </div>
     <div class="chat-input">
       <input id="chatQuestion" placeholder="Tanya kebutuhan belanja Kakak di sini..." onkeydown="if(event.key==='Enter')sendChat()">
@@ -1452,7 +1452,7 @@ function answerContextualProductChat(question){
   if(/apa kabar/.test(q))return "Alhamdulillah, saya siap membantu, Kak. Semoga Kakak juga sehat dan harinya menyenangkan. 😊";
   return "Terima kasih sudah berbincang dengan saya, Kak. Saya senang bisa menemani. Kalau ada yang ingin ditanyakan atau dibutuhkan, silakan sampaikan saja. 😊";
  }
- if(thanks)return "Sama-sama, Kak. Terima kasih juga sudah berkunjung dan berbincang dengan WARUNGKU. Semoga hari Kakak menyenangkan dan segala urusannya dimudahkan. 😊";
+ if(thanks)return "Sama-sama, Kak. Terima kasih juga sudah berkunjung dan berbincang dengan SAYA. Semoga hari Kakak menyenangkan dan segala urusannya dimudahkan. 😊";
  const outsideCity=/\b(ke luar kota|keluar kota|luar kota|antar kota|antarprovinsi|antar provinsi|luar daerah|ke luar daerah)\b/.test(q);
  const localDelivery=/\b(antar|diantar|pengantaran|pengiriman|kirim|dikirim|kerumah|rumah|alamat|ongkir|gojek|gosend|shopeefood|sampai rumah|ke rumah|di antar|bisa antar)\b/.test(q);
  if(outsideCity)return "Bisa kami bantu, Kak. Untuk pengiriman luar kota, pilihan ekspedisi dan biayanya perlu dikonfirmasi terlebih dahulu. Kakak boleh pilih produk dan jumlahnya dulu. Setelah itu pemilik warung akan memeriksa stok, jenis barang, pengemasan, pilihan kurir, serta ongkos kirim sebelum pesanan dikonfirmasi. 😊";
